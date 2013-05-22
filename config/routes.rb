@@ -1,6 +1,5 @@
 Nowplaying::Application.routes.draw do
   get "pages/index"
-  get "pages/update_playlist"
 
   root :to => 'pages#index'
 

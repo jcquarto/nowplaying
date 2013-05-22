@@ -1,29 +1,19 @@
 #now_playing
-- @songs.each do |s|
-  = render partial: "song", object: "song"
-%h2{:size => "3"}
-  :javascript
-    $(document).ready(function(){
-    
-      // The ajax function
-      var updatePlaylist = function(){
-        $.ajax({
-          type : 'GET',   //or POST, PUT, etc.
-          url : '/update_playlist',
-          dataType : 'html',
-          success : function(data){
-    
-            $('#now_playing').prepend(data);
-          },
-          error : function(XMLHttpRequest, textStatus, errorThrown) {
-            alert('Error!');
-          }
-        });
-    
-      }
-    
-    
-      //Interval
-      setInterval('updatePlaylist', 10000);
-    
-    });
+  %table{cellpadding: 10, border: 0, cellspacing: 20, align: "center", valign: "middle"}
+    - @songs.each do |song|
+      .song{id: "song_#{song.id}"}
+      %tr
+        %td{align: "right"}
+          %span.title
+            =song.title
+        %td{align: "left"}
+          %span.artist
+            =song.artist
+        %td
+          %span.when
+            =time_ago_in_words(song.created_at) + " ago"
+
+:javascript
+  $(document).ready(function(){
+
+  });

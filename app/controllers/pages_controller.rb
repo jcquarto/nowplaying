@@ -1,9 +1,6 @@
 class PagesController < ApplicationController
-  def index
-    @songs = Song.order("created_at DESC").limit(10)
-  end
 
-  def update_playlist
+  def index
     path = "/Users/q/Music/djay/NowPlaying.txt"
     @data = File.read( path )
 
@@ -13,13 +10,12 @@ class PagesController < ApplicationController
     @title = nil if @title = "N/A"
     @artist = nil if @artist = "N/A"
 
-    last_song = Song.last
-    if last_song.title.downcase = @title.downcase & last_song.artist.downcase = @artist.downcase
-      return render :nothing => true
-    else
+    last_song = Song.order("created_at DESC").limit(1).first
+    unless ( last_song.title.downcase == @title.downcase && last_song.artist.downcase == @artist.downcase )
       @song = Song.create!(title: @title, artist: @artist)
-      render partial: "update_playlist"
     end
+    @songs = Song.order("created_at DESC").limit(10)
+
   end
 
 end

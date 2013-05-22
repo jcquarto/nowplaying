@@ -1,3 +1,24 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+span.title {
+  font-size: 275%;
+  font-style: italic;
+  //padding-right: 20px;
+}
+
+span.artist {
+  font-size: 200%;
+  font-variant: small-caps;
+  //padding-right: 10px;
+}
+
+span.when {
+  font-size: 90%;
+}
+
+div.song {padding-top: 20px;}
+div.song.current {font-size: 125%;}
+
+div#now_playing {width: 100%; text-align: center;}
