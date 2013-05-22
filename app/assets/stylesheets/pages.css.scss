@@ -2,23 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// I played with this palette:
+//  http://www.colourlovers.com/palette/1533622/earth_magic
+
+body {
+  background-color: #353E3E;
+  color: #BEC5CD;
+}
 span.title {
-  font-size: 275%;
+  font-size: 250%;
   font-style: italic;
-  //padding-right: 20px;
+  padding-left: 150px;
 }
 
 span.artist {
-  font-size: 150%;
+  font-size: 160%;
   font-variant: small-caps;
   font-family: "Verdana";
-  padding-left: 10px;
+  padding-left: 30px;
 }
 
 span.when {
-  font-size: 90%;
+  font-size: 85%;
+  padding-left: 20px;
 }
 
-.current {color: #f00;}
+div.song {
+  padding: 20px;
+}
 
-div#now_playing {width: 100%; text-align: center;}
+.current {
+  color: #E2C440;
+}
+
+div#now_playing {width: 100%;}
