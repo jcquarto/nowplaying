@@ -1,0 +1,29 @@
+#now_playing
+- @songs.each do |s|
+  = render partial: "song", object: "song"
+%h2{:size => "3"}
+  :javascript
+    $(document).ready(function(){
+    
+      // The ajax function
+      var updatePlaylist = function(){
+        $.ajax({
+          type : 'GET',   //or POST, PUT, etc.
+          url : '/update_playlist',
+          dataType : 'html',
+          success : function(data){
+    
+            $('#now_playing').prepend(data);
+          },
+          error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert('Error!');
+          }
+        });
+    
+      }
+    
+    
+      //Interval
+      setInterval('updatePlaylist', 10000);
+    
+    });
