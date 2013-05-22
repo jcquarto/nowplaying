@@ -1,5 +1,7 @@
 Nowplaying::Application.routes.draw do
   get "pages/index"
+  get "pages/test"
+  match "now_playing" => "pages#now_playing", :via => :get
 
   root :to => 'pages#index'
 

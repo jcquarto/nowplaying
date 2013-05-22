@@ -1,19 +1,18 @@
-#now_playing
-  %table{cellpadding: 10, border: 0, cellspacing: 20, align: "center", valign: "middle"}
-    - @songs.each do |song|
-      .song{id: "song_#{song.id}"}
-      %tr
-        %td{align: "right"}
-          %span.title
-            =song.title
-        %td{align: "left"}
-          %span.artist
-            =song.artist
-        %td
-          %span.when
-            =time_ago_in_words(song.created_at) + " ago"
+%div{align: "center", style: "font-size: 150%"}
+  %a.btn.btn-large{:href => now_playing_path, id: "go"}load playlist in chromeless window
+
 
 :javascript
   $(document).ready(function(){
+    $('#go').click(function (event){
 
+      var url = $(this).attr("href");
+      var windowName = $(this).attr("now_playing");
+      var windowParams = "width=1200,height=800,scrollbars=yes,toolbar=no";
+
+      window.open(url, windowName, windowParams);
+
+      event.preventDefault();
+
+    });
   });

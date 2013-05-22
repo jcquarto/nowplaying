@@ -1,0 +1,27 @@
+#now_playing
+  %table{cellpadding: 25, border: 0, cellspacing: 20, align: "center", valign: "middle"}
+    - @songs.each do |song|
+      .song{id: "song_#{song.id}"}
+        %tr
+          %td{align: "left"}
+            %span.title
+              =song.title.titleize
+            %span.artist
+              =song.artist.titleize
+          %td
+            %span.when
+              =time_ago_in_words(song.created_at) + " ago"
+
+:javascript
+  $(document).ready(function(){
+    //add special class to currently playing song (first in list)
+    $('#song_#{@songs.first.id} span.title').css('color', "#fff");
+
+    //alert( $('#song_#{@songs.first.id} span.title').css("color") )
+  });
+
+
+
+-content_for :meta do
+  %meta{'http-equiv' => 'refresh', :content => '7'}/
+  %meta{'HTTP-EQUIV' => "CACHE-CONTROL", :content => "NO-CACHE"}/

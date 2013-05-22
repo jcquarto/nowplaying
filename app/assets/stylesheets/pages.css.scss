@@ -9,16 +9,16 @@ span.title {
 }
 
 span.artist {
-  font-size: 200%;
+  font-size: 150%;
   font-variant: small-caps;
-  //padding-right: 10px;
+  font-family: "Verdana";
+  padding-left: 10px;
 }
 
 span.when {
   font-size: 90%;
 }
 
-div.song {padding-top: 20px;}
-div.song.current {font-size: 125%;}
+.current {color: #f00;}
 
 div#now_playing {width: 100%; text-align: center;}
