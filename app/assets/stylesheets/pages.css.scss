@@ -19,7 +19,7 @@ span.artist {
   font-size: 160%;
   font-variant: small-caps;
   font-family: "Verdana";
-  padding-left: 30px;
+  padding-left: 175px;
 }
 
 span.when {
@@ -36,3 +36,19 @@ div.song {
 }
 
 div#now_playing {width: 100%;}
+
+div#announcement {width: 100%;}
+h2.heading {
+  color: #E2C440;
+  text-align:center;
+  font-size: 400%;
+  font-variant: small-caps;
+  font-family: "Verdana";
+}
+h1.body {
+  text-align:center;
+  font-size: 600%;
+  font-weight: normal;
+  padding-top: 100px;
+}
+

@@ -1,0 +1,17 @@
+#announcement
+
+  %h2.heading
+    =@announcement.heading
+
+  %h1.body
+    =@announcement.body
+
+:javascript
+  $(document).ready(function(){
+  });
+
+
+
+-content_for :meta do
+  %meta{'http-equiv' => 'refresh', :content => '12;URL=' + now_playing_path}/
+  %meta{'HTTP-EQUIV' => "CACHE-CONTROL", :content => "NO-CACHE"}/

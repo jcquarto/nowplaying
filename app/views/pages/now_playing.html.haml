@@ -4,6 +4,7 @@
     .song{id: "song_#{song.id}"}
       %span.title
         =song.title.titleize unless song.title.nil?
+      %br
       %span.artist
         =song.artist.titleize unless song.artist.nil?
       %span.when
@@ -20,5 +21,5 @@
 
 
 -content_for :meta do
-  %meta{'http-equiv' => 'refresh', :content => '7'}/
+  %meta{'http-equiv' => 'refresh', :content => '12;URL='+ announcement_path}/
   %meta{'HTTP-EQUIV' => "CACHE-CONTROL", :content => "NO-CACHE"}/

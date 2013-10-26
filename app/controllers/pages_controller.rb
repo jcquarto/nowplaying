@@ -14,11 +14,27 @@ class PagesController < ApplicationController
     @artist = nil if @artist == "N/A"
 
     @last_song = Song.order("created_at DESC").limit(1).first
-    if ( @last_song.title != @title && @last_song.artist != @artist && @title != @artist )
+    if ( @last_song.nil? || ( @last_song.title != @title && @last_song.artist != @artist && @title != @artist) )
       song = Song.create!(title: @title, artist: @artist)
     end
-    @songs = Song.order("created_at DESC").limit(7)
+    @songs = Song.order("created_at DESC").limit(6)
 
+  end
+
+  def announcement
+    # this is in root of the app
+    path = "announcement.txt"
+    data = File.read( path )
+
+    @heading =  data.split("Heading: ").last.split("Body:").first.strip
+    @body = data.split("Body: ").last.strip
+
+    @last_announcement = Announcement.order("created_at DESC").limit(1).first
+    if ( @last_announcement.nil? || ( @last_announcement.heading != @heading && @last_announcement.body != @body) )
+      announcement = Announcement.create!(heading: @heading, body: @body)
+    end
+
+    @announcement = Announcement.order("created_at DESC").limit(1).first
   end
 
   def test
