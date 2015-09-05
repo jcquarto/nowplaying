@@ -4,4 +4,5 @@ body {
   background-color: #333;
   color: #eee;
 }
-@import "bootstrap-responsive";
+// the following is removable as of Bootstrap 3 which is responsive by default
+//@import "bootstrap-responsive";
